@@ -2,8 +2,9 @@ body {
     /*background-color: #eee;*/
     /*overflow: hidden;*/
     font-family: 'Roboto', sans-serif;
-    background-color: #008080;
+    background-color: #ff6000;
     color: white;
+    text-transform: uppercase;
 }
 
 canvas {
@@ -12,6 +13,7 @@ canvas {
     display: block;
     outline: dotted;
     outline-width: 1px;
+    background-color: rgba(0,0,0,0.2);
 
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
