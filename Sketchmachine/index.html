@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sketch Machine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta property="og:image" content="https://www.sketchmachine.net/og-image.png">
+  <meta name="description" content="Sketch Machine is a free (FLOSS) animation tool created by Casey REAS in 2018, with help from GIPHY.">
+</head>
+<body>
+<div id="macro-ui">
+  <div id="ui">
+    <div id="sketch-container">
+      <canvas width="512" height="512" id="animation-dummy"></canvas>
+      <div id="buttons">
+        <div id="playback-buttons">
+          <input onclick="clickPlay()" tabindex="-1" id="play" type="button" class="play">
+          <input onclick="clickBack()" tabindex="-1" id="back" type="button" class="back-next mirror">
+          <input onclick="clickNext()" tabindex="-1" id="next" type="button" class="back-next">
+        </div>
+        <div id="select-buttons">
+          <div id="select-range" class="selector">
+            <form>
+              <input id="select-check" tabindex="-1" onclick="selectRange()" type="checkbox">
+              <label for="select-check" id="select-label">Select All</label>
+            </form>
+          </div>
+          <input onclick="eraseSelectedFrames()" tabindex="-1" id="eraseconsole" type="button" value="Clear Frames" class="clear-frames">
+        </div>
+      </div>
+    </div>
+    <div id="column">
+      <div id="controls">
+        <div id="tools">
+          <h2>Drawing Tools</h2>
+          <div id="brush-1" class="brush">
+            <input id="b1-select" tabindex="-1" type="checkbox" checked>
+            <select id="b1-tools">
+              <option value="1">Point</option>
+              <option value="2" selected>Line</option>
+              <option value="3">Plane</option>
+            </select>
+            <input id="b1-slider" tabindex="-1" type="range" min="1" max="100" value="10">
+            <input onclick="openColorSelector(1)" tabindex="-1" id="b1-color" type="button" value="" class="colorButton">
+          </div>
+          <div id="brush-2" class="brush">
+            <input id="b2-select" tabindex="-1" type="checkbox" checked>
+            <select id="b2-tools" tabindex="-1">
+              <option value="1">Point</option>
+              <option value="2" selected>Line</option>
+              <option value="3">Plane</option>
+            </select>
+            <input id="b2-slider" tabindex="-1" type="range" min="1" max="100" value="20">
+            <input onclick="openColorSelector(2)" tabindex="-1" id="b2-color" type="button" value="" class="colorButton">
+          </div>
+          <div id="brush-3" class="brush">
+            <input id="b3-select" tabindex="-1" type="checkbox" checked>
+            <select id="b3-tools" tabindex="-1">
+              <option value="1">Point</option>
+              <option value="2" selected>Line</option>
+              <option value="3">Plane</option>
+            </select>
+            <input id="b3-slider" tabindex="-1" type="range" min="1" max="100" value="30">
+            <input onclick="openColorSelector(3)" tabindex="-1" id="b3-color" type="button" value="" class="colorButton">
+          </div>
+          <div id="brush-4" class="brush">
+            <input id="b4-select" tabindex="-1" type="checkbox" checked>
+            <select id="b4-tools" tabindex="-1">
+              <option value="1">Point</option>
+              <option value="2" selected>Line</option>
+              <option value="3">Plane</option>
+            </select>
+            <input id="b4-slider" tabindex="-1" type="range" min="1" max="100" value="40">
+            <input onclick="openColorSelector(4)" tabindex="-1" id="b4-color" type="button" value="" class="colorButton">
+          </div>
+          <div id="brush-5" class="brush">
+            <input id="b5-select" tabindex="-1" type="checkbox" checked>
+            <select id="b5-tools" tabindex="-1">
+              <option value="1">Point</option>
+              <option value="2" selected>Line</option>
+              <option value="3">Plane</option>
+            </select>
+            <input id="b5-slider" tabindex="-1" type="range" min="1" max="100" value="50">
+            <input onclick="openColorSelector(5)" tabindex="-1" id="b5-color" type="button" value="" class="colorButton">
+          </div>
+        </div>
+        <div id="tool-modifiers">
+          <h2>Modifiers</h2>
+          <div class="setting">
+            <input id="jitter-check" tabindex="-1" onclick="jitterToggle()" type="checkbox">
+            <span class="setting-label">Jitter</span>
+            <input id="randomXY" tabindex="-1" type="range" min="10" max="100" value="40">
+          </div>
+          <br />
+          <div class="setting">
+            <form>
+              <input id="engorge-check" tabindex="-1" onclick="speedSizeToggle()" type="checkbox">
+              <label for="engorge-check" id="engorge-label">Engorge</label>
+            </form>
+          </div>
+          <br />
+          <div class="setting">
+            <input id="sluggish-check" tabindex="-1" onclick="sluggishToggle()" type="checkbox">
+            <span class="setting-label">Sluggish</span>
+            <input id="easing-slider" tabindex="-1" type="range" min="0" max="100" value="50">
+          </div>
+        </div>
+        <div id="options">
+          <h2>Options</h2>
+          <div id="background-buttons" class="setting">
+            <input id="background-check" tabindex="-1" onclick="backgroundToggle()" checked type="checkbox">
+            <label for="background-check" id="background-label" class="setting-label">Background</label>
+            <input onclick="openColorSelector(0)" tabindex="-1" id="background-color-button" type="button" value="" class="colorButton">
+          </div>
+          <br />
+          <div id="speed-slider" class="setting">
+            <span class="setting-label">Speed</span>
+            <input id="speed" style="direction: rtl" tabindex="-1" type="range" min="1" max="9" value="4">
+          </div>
+          <br />
+          <div id="onion-options" class="setting">
+            <form>
+              <input id="onion-check" tabindex="-1" onclick="onionToggle()" type="checkbox">
+              <label for="onion-check" id="onion-label">Onion skin</label>
+            </form>
+          </div>
+          <br />
+          <div id="playback-options" class="setting">
+            <form>
+              <span class="setting-label">Playback</span>
+              <input onclick="clickReverse()" id="reverse" tabindex="-1" type="radio" name="playback" value="reverse"><label for="reverse">←</label>
+              <input onclick="clickBackAndForth()" id="back-and-forth" tabindex="-1" type="radio" name="playback" value="back and forth"><label for="back-and-forth">↔︎</label>
+              <input onclick="clickForward()" id="forward" type="radio" tabindex="-1" name="playback" value="forward" checked><label for="forward">→</label>
+            </form>
+          </div>
+        </div>
+        <div id="export">
+          <h2>Export</h2>
+          <div id="export-options">
+            <div id="export-overlay">
+              <div id="exported-gif">
+                <div id="exported-gif-spinner">
+                  <div id="export-progress">0%</div>
+                </div>
+                <img id="exported-gif-img">
+                <div id="export-controls">
+                  <button id="export-close" onclick="cancelOrCloseGIF()">
+                    BACK
+                  </button>
+                  <button id="export-upload-to-giphy" onclick="uploadToGiphy()">
+                    ↳ <img id="giphy-logo" src="giphy-logo.svg">
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="giphy-upload-overlay"></div>
+            <input id="export-button" onclick="exportGIF()" tabindex="-1" type="button" value=".gif">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <div id="etc">
+      Keyboard Shorcuts
+      <ul id="keyboard-shortcuts">
+        <li><span class="keyboard-shortcut">P</span> Pause / Play</li>
+        <br>
+        <li>
+          <span class="keyboard-shortcut"><span class="mirror">➜</span></span>
+          <span class="keyboard-shortcut">➜</span> Prev & Next Frame
+        </li>
+        <br>
+        <li><span class="keyboard-shortcut">F</span> Clear Frame</li>
+        <li><span class="keyboard-shortcut">A</span> Clear <b>All</b> Frames</li>
+        <li><span class="keyboard-shortcut">S</span> Clear <b>Selected</b> Frames</li>
+      </ul>
+      <div id="credits">
+        Too slow or want more pixels? Try a different resolution: <br />
+        <a class="res" href="/?res=1024">1024</a>, <a class="res" href="/?res=512">512</a>, <a class="res" href="/?res=256">256</a>, <a class="res" href="/?res=128">128</a>, <a class="res" href="/?res=64">64</a>.
+        <br>
+        <br>
+        <b>Sketch Machine</b> v1 was created by <a href="http://caesuras.net" target="_blank">Casey REAS</a> with help from <a href="https://giphy.com/">GIPHY</a>.
+        <br/>
+        <br/>
+        <div id="fine-print">
+          <a href="https://giphy.com/tv/sketchmachine">Find all the Sketch Machine GIFs on Giphy</a>. The <a href="https://github.com/REAS/sketchmachine" target="_blank">source code</a> for Sketch Machine is on GitHub. For related work, see this informal list of <a href="https://github.com/REAS/sketchmachine/wiki/Weird-Drawing-Software" target="_blank">Weird Drawing Software</a>. Sketch Machine was created with <a href="https://p5js.org/" target="_blank">p5.js</a>.
+        </div>
+        <br>
+        <a href="https://giphy.com"><img id="giphy-arts-logo" src="giphy-arts-logo.svg"></a>
+      </div>
+    </div>
+  </footer>
+  <div id="color-selector">
+    <div id="colors">
+    </div>
+  </div>
+</div>
+<script src="vendor/p5.min.js"></script>
+<script src="vendor/gif.js"></script>
+<script src="sketch.js"></script>
+<script src="timeline.js"></script>
+<script src="marks.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
