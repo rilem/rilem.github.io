@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Diep in de zee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+<meta name="generator" content="Construct 3">
+
+	<link rel="manifest" href="appmanifest.json">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Andada+Pro:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="website">
+	<div class="box">
+		<h1>De Noordzee</h1>
+	</div>
+	<div class="box">
+		<h1>De diepte in</h1>
+	</div>
+	<div class="box">
+		<h1>Brrr koud</h1>
+	</div>
+</div>
+
+<div id="fb-root"></div>
+	<script src="scripts/supportcheck.js"></script>
+	<script src="scripts/offlineclient.js" type="module"></script>
+	<script src="scripts/main.js" type="module"></script>
+	<script src="scripts/register-sw.js" type="module"></script>
+
+	<script>
+		window.addEventListener('scroll', function(e){
+			scrolly = window.scrollY;
+
+			console.log(scrolly);
+			c3_callFunction("SetCameraTargetY", [scrolly*.5]);
+
+
+		})
+	</script>
+</body>
+</html>
