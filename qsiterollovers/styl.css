@@ -528,3 +528,120 @@ h1 {
   transition: all 0.5s cubic-bezier(0.56, 0.07, 0.04, 0.99);
   transition-delay: 0;
 }
+.hue .view {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 6px;
+  perspective: 500px;
+  transition: all 0.6s cubic-bezier(0.56, 0.07, 0.04, 0.99);
+}
+.hue .view .logo {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 13px;
+  top: 5px;
+  opacity: 0;
+  background-image: url("images/hue-logo.png");
+  background-size: 100%;
+  transition: opacity 1s cubic-bezier(0.56, 0.07, 0.04, 0.99);
+}
+.hue .view:hover {
+  transform: scale(1.4);
+}
+.hue .view:hover .logo {
+  opacity: 1;
+}
+.hue .container {
+  transition: 1.5s ease;
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  height: 320px;
+}
+.hue .container .bg {
+  background-image: url("images/hue-bg.png");
+  background-size: 100%;
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  transition: all 2s ease;
+  transform: scale(1.2);
+}
+.hue .container .bluebg {
+  background-image: url("images/hue-bg-blue.png");
+  opacity: 0;
+  transition: transform 2s ease, opacity 5s ease;
+}
+.hue .container .lamp {
+  background-image: url("images/hue-lamp.png");
+  background-size: 100%;
+  width: 100px;
+  height: 141px;
+  transform-origin: top;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  transition: all 2s ease;
+}
+.hue .container .table {
+  background-image: url("images/hue-table.png");
+  background-size: 100%;
+  width: 270px;
+  height: 107px;
+  transform-origin: bottom;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 2s ease;
+  transform: translateX(-20px);
+}
+.hue .container .bluetable {
+  background-image: url("images/hue-table-blue.png");
+  opacity: 0;
+  transition: transform 2s ease, opacity 5s ease;
+}
+.hue .container .gradient {
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 3s ease;
+}
+.hue .container .gradient.yellow {
+  background: linear-gradient(170deg, #ffae00 0%, rgba(255,200,0,0) 15%);
+}
+.hue .container .gradient.blue {
+  background: linear-gradient(160deg, #8c8aff 0%, rgba(178,160,255,0) 30%);
+  opacity: 0;
+}
+.hue .container:hover {
+  transform: scale(1.1);
+}
+.hue .container:hover .bg {
+  transform: scale(1) translateX(-10px);
+}
+.hue .container:hover .lamp {
+  transform: translateX(20px) scale(0.8);
+}
+.hue .container:hover .table {
+  transform: translateX(0px);
+}
+.hue .container:hover .bluebg {
+  opacity: 1;
+}
+.hue .container:hover .bluetable {
+  opacity: 1;
+}
+.hue .container:hover .gradient.yellow {
+  opacity: 0;
+}
+.hue .container:hover .gradient.blue {
+  opacity: 1;
+}
+.hue .container:not(:hover) * {
+  transition: 0.5s cubic-bezier(0.56, 0.07, 0.04, 0.99);
+}
