@@ -489,10 +489,23 @@ swift-in-out = cubic-bezier(0.56, 0.07, 0.04, 0.99)
             background-image url('images/hue-logo.png')
             background-size 100%
             transition opacity 1s swift-in-out
+        .bulb
+            width 87px
+            height 159px
+            position absolute
+            right 13px
+            bottom 21px
+            opacity 1
+            background-image url('images/hue-bulb.png')
+            background-size 100%
+            transition all 0.6s swift-in-out
         &:hover
             transform scale(1.4)
             .logo
                 opacity 1
+            .bulb
+                opacity 0
+                transform translateY(50px)
     .container
         transition 1.5s ease
         position relative
