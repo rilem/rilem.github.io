@@ -853,3 +853,37 @@ h1 {
   transition: 0.5s cubic-bezier(0.56, 0.07, 0.04, 0.99);
   transition-delay: 0;
 }
+.huebulb .container {
+  transition: all 0.6s cubic-bezier(0.56, 0.07, 0.04, 0.99);
+  transform: scale(0.6);
+}
+.huebulb .container .bulb {
+  width: 279px;
+  height: 512px;
+  background-size: 100%;
+  position: relative;
+}
+.huebulb .container .bulb .top {
+  width: 279px;
+  height: 146px;
+  background-image: url("images/huebulb-top.png");
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 8s ease;
+}
+.huebulb .container .bulb .bottom {
+  width: 229px;
+  height: 382px;
+  background-image: url("images/huebulb-bottom.png");
+  background-size: 100%;
+  position: absolute;
+  top: 136px;
+  left: 25px;
+}
+.huebulb .container:hover {
+  transform: scale(1) rotateZ(-12deg);
+}
+.huebulb .container:hover .bulb .top {
+  filter: hue-rotate(900deg);
+}
