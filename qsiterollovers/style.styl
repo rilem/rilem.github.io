@@ -661,3 +661,94 @@ swift-in-out = cubic-bezier(0.56, 0.07, 0.04, 0.99)
             &:not(:hover)
             *
                 transition 0.5s swift-in-out
+
+//pieterrrrrrpot
+.pieterpot
+    .container
+        transition all 0.6s swift-in-out
+        .phone
+            width 252px
+            height 509px
+            background-image url('images/pieterpot-phone.png')
+            background-size 100%
+            position relative
+            .stickers
+                transition all 2s ease
+                position relative
+                transform translateX(50px)
+                top 0
+                .logo
+                    width 226px
+                    height 138px
+                    background-image url('images/pieterpot-stickerlogo.png')
+                    background-size 100%
+                    position absolute
+                    top 39px
+                    left -183px
+                    transform scale(0)
+                    transition all 0.5s swift-in-out
+                    transition-delay 0.1s
+                .power
+                    width 91px
+                    height 138px
+                    background-image url('images/pieterpot-wastesticker.png')
+                    background-size 100%
+                    position absolute
+                    top 192px
+                    left -96px
+                    transform scale(0)
+                    transition all 0.5s swift-in-out
+                    transition-delay 0.15s
+                .pot
+                    width 91px
+                    height 126px
+                    background-image url('images/pieterpot-potsticker.png')
+                    background-size 100%
+                    position absolute
+                    top 339px
+                    left -132px
+                    transform scale(0)
+                    transition all 0.5s swift-in-out
+                    transition-delay 0.2s
+            .screen
+                width 226px
+                height 487px
+                position absolute
+                top 11px
+                left 13px
+                border-radius 26px
+                overflow hidden
+                .app
+                    width 458px
+                    height 487px
+                    display flex
+                    transition all 0.5s swift-in-out
+                    .home
+                        width 226px
+                        height 487px
+                        background-image url('images/pieterpot-app.png')
+                        background-size 100%
+                    .product
+                        width 226px
+                        height 487px
+                        background-image url('images/pieterpot-product.png')
+                        background-size 100%
+        
+        &:hover
+            transform scale(1.2) rotateZ(2deg)
+
+            .app
+                transform translateX(-226px)
+            .stickers
+                transform translateX(10px)
+                .logo
+                    transform scale(1)
+                .pot
+                    transform scale(1) rotateZ(-15deg) translateX(-5px)
+                .power
+                    transform scale(1) rotateZ(10deg) translateX(10px)
+        &:not(:hover)
+            .stickers
+                .power, .pot, .logo
+                    transition 0.5s swift-in-out
+                    transition-delay 0
