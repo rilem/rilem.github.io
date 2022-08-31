@@ -14,7 +14,7 @@ body
     display flex
     justify-content center
     align-items center
-    margin-bottom 100px
+    margin-bottom 150px
 h1
     margin 20px
     font-family 'proxima-nova'
@@ -584,4 +584,80 @@ swift-in-out = cubic-bezier(0.56, 0.07, 0.04, 0.99)
                 
 
 
-
+.lightyear
+    .view
+        perspective 500px
+        .container
+            transform scale(0.9)
+            transition all 0.7s swift-in-out
+            .phone
+                width 252px
+                height 535px
+                background-image url('images/lightyear-phone.png')
+                background-size 100%
+                position relative
+                .app
+                    width 236px
+                    height 487px
+                    position absolute
+                    top 29px
+                    left 8px
+                    border-radius 20px
+                    overflow hidden
+                    .home
+                        width 236px
+                        height 487px
+                        background-image url('images/lightyear-app.png')
+                        background-size 100%
+                    .sunrise
+                        width 236px
+                        height 487px
+                        background-image url('images/lightyear-splash.png')
+                        background-size 100%
+                        position absolute
+                        top 0
+                        opacity 0
+                        transition opacity 0.5s swift-in-out
+            .car
+                width 177px
+                height 76px
+                background-image url('images/lightyear-car.png')
+                background-size 100%
+                position absolute
+                left 36px
+                top 225px
+                transition all 0.5s swift-in-out
+            .car-popout-frame
+                width 500px
+                height 487px
+                position absolute
+                left 8px
+                top 29px
+                overflow hidden
+                pointer-events none
+                transition all 4s ease
+                transform-origin left
+                .car-popout
+                    width 406px
+                    height 208px
+                    background-image url('images/lightyear-side.png')
+                    background-size 100%
+                    position absolute
+                    top 185px
+                    transform translateX(-410px)
+                    transition all 0.7s swift-in-out
+            &:hover
+                transform scale(1.2) rotateZ(-3deg)
+                .car
+                    transform translate3d(0, 80px, 0) scale(1.5)
+                    opacity 0
+                .app
+                    .sunrise
+                        opacity 1
+                .car-popout
+                    transform translateX(-54px) scale(1.1)
+                .car-popout-frame
+                    transform scale(1.2)
+            &:not(:hover)
+            *
+                transition 0.5s swift-in-out
