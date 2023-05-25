@@ -1,0 +1,146 @@
+body, button {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+body {padding: 200px 0;}
+
+
+.center-column {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+button:hover {cursor:pointer;}
+
+.demo {
+    width: 100%;
+    height: 320px;
+    background-image: linear-gradient(#dfdfdf 1px, transparent 1px), linear-gradient(to right, #dfdfdf 1px, #f8f8f8 1px);
+    background-size: 20px 20px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.demo button {position:absolute;bottom:10px;left:10px;z-index: 10;}
+.block {background-color:grey;width:100px;height:100px;position:absolute;top:100px;transition:1s linear;}
+.active {
+    background-color: red;
+    transform: translateX(900px);
+}
+
+.code {
+    background-color: #f0efe7;
+    padding: 20px;
+    font-family: monospace;
+}
+
+
+.clouds {
+    background-image: url(img/clouds.png);
+    background-size: 640px 204px;
+    width: 400%;
+    height: 204px;
+    position: absolute;
+    top: 7px;
+    animation: clouds 3s linear infinite;
+}
+
+.clouds:nth-of-type(2){animation: clouds 6s linear infinite;opacity:0.6;}
+
+@keyframes clouds {
+    0%   {transform: translateX(0);}
+    100% {transform: translateX(-640px);}
+  }
+
+
+  .easeoutmenu {
+    background-color:grey;width:100px;height:100px;position:absolute;top:100px;transition:1s linear;
+  }
+
+  .easeout {
+    transition: 0.3s ease-out;
+    height: 400px;
+    width: 400px;
+    top: 0;
+    left: -400px;
+  }
+
+  .easeout.better {
+    transition: 0.4s cubic-bezier(0.42, 0, 0, 1);
+  }
+
+  .easeout.active {
+    background-color: red;
+    transform: translateX(400px);
+}
+
+.layeredcontainer {
+    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    height: 200px;
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    transition: 0.3s cubic-bezier(0.42, 0, 0, 1);
+    transform: translateY(25px);
+}
+
+.layeredcontainer.active {
+    transform: scale(1) translateY(0px);
+    transition: 1.6s cubic-bezier(0.42, 0, 0, 1);
+}
+
+.layeredchild {
+    width:100%; height:100%;
+    background-color: rgb(255, 255, 255);
+    transform: scale(0);
+    transition: 0.3s cubic-bezier(0.42, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.layeredchild h2, .layeredchild p {
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 3px;
+    position: relative;
+    top: -10px;
+    opacity: 0;
+    color: white;
+    transform: translateY(40px);
+    transition: 0.3s ease;
+    text-shadow: 1px 1px 4px #000000b0;
+}
+
+.layeredcontainer.active h2, .layeredcontainer.active p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.8s ease;
+    transition-delay: 0.1s;
+}
+
+.layeredcontainer.active .layeredchild {
+    transform: scale(1);
+    background-color: black;
+    transition: transform 0.6s cubic-bezier(0.42, 0, 0, 1), background-color 2s cubic-bezier(0.42, 0, 0, 1);
+}
+
+.knorrig {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background-image: url(img/knorrig.png);
+    opacity: 0.8;
+    transition: 0.3s ease;
+    transform: translateY(200px) scale(1.3);
+}
+
+.layeredcontainer.active .knorrig {
+    transform: translateY(150px)  scale(1);
+    transition: 3s ease;
+    opacity: 0.7;
+}

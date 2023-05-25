@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Q42 Motion</title>
+    <meta name="description" content="Practical motion design tips.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Q42 Motion">
+    <meta property="og:site_name" content="Q42 Motion">
+    <meta property="og:url" content="URL">
+    <meta property="og:description" content="No bullshit. Practical tips for sweet motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview pic url">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/x-icon" href="site-icon.png">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="center-column">
+        <h1>Layered animation</h1>
+        <p>Layers in this context are not related to visual stacks of elements. Layered animation refers to the
+            animating of various different properties across multiple objects within a shared hierarchy.</p>
+        <p>Layers are what give an animation depth. This is one of the key things which make an animation nice to look
+            at.</p>
+
+        <h1>Demo</h1>
+
+        <div class="demo">
+            <button>Animate</button>
+            <div class="block layeredcontainer">
+                <div class="layeredchild">
+                    <div class="knorrig"></div>
+                    <h2>KNORRIG</h2>
+                    <p>Een spannende film voor jong en oud.</p>
+                </div>
+            </div>
+        </div>
+
+        <p>This animated thumbnail looks pretty nice! To the user it reads as 1 animation: the thumbnail appears and
+            voila. However, this animation consists of several individual animating elements. Each animated with their
+            own speeds and animation curves.</p>
+
+        <p><strong>Note:</strong> even though the 'tail' of the animation is quite long, the element can be considered
+            ready for interaction quite quickly. You can almost say that in cases like this you can divide the animation
+            into a <strong>primary</strong> and <strong>secondary</strong> category. </p>
+        <ul>
+            <li>Primary being the scaling animation with which the frame appears.</li>
+            <li>Secondary being the long tail animations which subtly ease out.</li>
+        </ul>
+        <p>When working with UI, you'll most likely be dealing with object hierarchies. These hierarchies are ideal for
+            animations such as this one. Parent transformations directly translate to the child objects as well. Working
+            your way from top (parent) to bottom (children) is a great way to iterate through animation designs.</p>
+
+        <p>tl;dr animate all the things. Take into consideration primary and secondary layers of animation.</p>
+
+        <h1>Advanced uses</h1>
+        <p>The previous example is a pretty straightforward state toggle that controls all of the parameters.</p>
+        <p>Taking a look at some of the animations Apple is implementing on their iPhones and iPads for example, it becomes a whole other story.</p>
+
+
+
+
+
+
+
+    </div>
+    <script>
+        // Get all elements with the class 'demo'
+        const demoElements = document.querySelectorAll('.demo');
+
+        // Loop through each 'demo' element
+        demoElements.forEach((demoElement) => {
+            // Find the button and block elements within each 'demo' element
+            const button = demoElement.querySelector('button');
+            const block = demoElement.querySelector('.block');
+
+            // Add a click event listener to the button if it exists
+            if (button) {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class on the 'block' element
+                    if (block) {
+                        block.classList.toggle('active');
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>

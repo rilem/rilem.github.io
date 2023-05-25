@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Q42 Motion</title>
+    <meta name="description" content="Practical motion design tips.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Q42 Motion">
+    <meta property="og:site_name" content="Q42 Motion">
+    <meta property="og:url" content="URL">
+    <meta property="og:description" content="No bullshit. Practical tips for sweet motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview pic url">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/x-icon" href="site-icon.png">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="center-column">
+        <h1>Easing</h1>
+        <p>This may be considered basics, but mastering the basics is important too.</p>
+        <p>In the world of animation easings control the attitude of your movements and have great impact on wether
+            something feels good or not. If an animation doesn't feel good for some reason, wrongly chosen easing values
+            are a prime suspect.</p>
+        <p>I'll go over some common easings and highlight what they are good for using examples.</p>
+
+        <!-- Linear animation -->
+
+        <h1>Linear animation</h1>
+        <p>Meaning, the amount of movement (or change of another property) stays the same throughout the entire
+            animation.</p>
+        <div class="demo">
+            <button id="linearaction">Animate</button>
+            <div class="block"></div>
+        </div>
+        <p>Pretty boring isn't it? This type of animation is definitely not suited for switching between states. It can
+            be great in other situations though.</p>
+
+        <h2>Practical applications</h2>
+        <p>Linear animation is great for continuous looping animations.</p>
+
+        <div class="demo" style="height:200px;">
+            <div class="clouds"></div>
+            <!-- delete this cloud -->
+            <div class="clouds"></div>
+        </div>
+        <p>This is just a simple repeating texture with a linear scrolling animation.</p>
+        <p><strong>Note:</strong> this frame looks pretty dynamic because there are 2 layers of clouds stacked on top of
+            each other. 2 different scroll speeds create a parallax animation which instantly creates the illusion of
+            depth. If you go into the web inspector and delete one of the cloud layers, you'll instantly see the
+            animation become a bit more dull :)</p>
+        <p>Scrolling textures have amazing potential. More about that in <a href="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg">TODO: the magic of scrolling textures.</a>
+        </p>
+
+        <h1>Ease out</h1>
+        <p>In the world of animation an ease-out describes a motion which starts moving instantly and then gradually
+            eases out 👀</p>
+        <p>This type of animation is great for anything that responds to user interaction. The user presses something
+            and will expect some kind of output. We don't want to delay that output whatsoever, the user is waiting! So
+            BOOM ease-out let's go!</p>
+        <div class="demo">
+            <button>Animate</button>
+            <div class="block easeout">fart menu</div>
+        </div>
+        <p>Great for menu's, changing states of objects. It's hard to go wrong with an ease-out! However, the above example <strong>doesn't feel right</strong>. It uses the
+            default animation curve that css defines as 'ease-out'.</p>
+        <p>Why doesn't it feel right? It has no playfulness and it doesn't feel alive. Ease-out? More like boring-out.
+        </p>
+        <img src="img/boring-out.png">
+        <p>This is what the default css 'ease-out' looks like in the web-inspectors bezier editor. Only marginally
+            different from a linear easing!</p>
+        <h2>Improved version</h2>
+        <div class="demo">
+            <button>Animate</button>
+            <div class="block easeout better">fart menu</div>
+        </div>
+        <p>This feels lots better.</p>
+        <img src="img/better.png">
+        <p class="code">cubic-bezier(0.42, 0, 0, 1)</p>
+        <p>This is what a good ease-out curve looks like <strong>for this situation</strong>. It has an aggresive
+            ease-out and a subtle ease-in to cancel some of that aggression.</p>
+            <p>Aggression? Dude, What does that even mean?</p>
+            <img src="img/aggro.png">
+            <p>To explain, if you open the web-inspector and change the easing curve to match this one. You'll see that the beginning of the animation will become almost instantanious. The ending looks good though!</p>
+            
+            <p>So the beginning of the animation curve was given a tiny bit of ease-in to actually communicate to the user that something is going to animate. Rather than teleporting half way through the animation (which might confuse and DESTROY your user).</p>
+            <p>Apart form that, the animation was given a bit more time
+            (0.1s) to complete. Because with such an aggresive curve, 80% of the movement happens in the highlighted
+            part. It's important to adjust your timings to your animation curves, otherwise some movements might not
+            even be visible.</p>
+        <h2>Some notes</h2>
+        <p><i>'It doesn't feel right'</i> is a phrase I will be using a lot. Can you explain why? Yes I can explain why,
+            but I can't explain the reasoning behind getting that feeling. It's basically just gut feeling and it always
+            rears it's head when something just doesn't feel right.</p>
+        <p>A good cheat code is asking yourself: is this animation smooth (it probably should be)? does it have any abrupt stops (it probably shouldn't have)?</p>
+
+
+        <h1>Todo</h1>
+        <ul>
+            <li>Quint, Quart, Cubic, etc.</li>
+            <li>Weird curves: elastic, overshoot, etc.</li>
+            <li>Segue into chaining of animation curves.</li>
+        </ul>
+
+
+
+
+
+    </div>
+    <script>
+        // Get all elements with the class 'demo'
+        const demoElements = document.querySelectorAll('.demo');
+
+        // Loop through each 'demo' element
+        demoElements.forEach((demoElement) => {
+            // Find the button and block elements within each 'demo' element
+            const button = demoElement.querySelector('button');
+            const block = demoElement.querySelector('.block');
+
+            // Add a click event listener to the button if it exists
+            if (button) {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class on the 'block' element
+                    if (block) {
+                        block.classList.toggle('active');
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>
