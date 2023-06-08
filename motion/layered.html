@@ -22,12 +22,10 @@
 <body>
     <div class="center-column">
         <h1>Layered animation</h1>
-        <p>Layers in this context are not related to visual stacks of elements. Layered animation refers to the
-            animating of various different properties across multiple objects within a shared hierarchy.</p>
-        <p>Layers are what give an animation depth. This is one of the key things which make an animation nice to look
-            at.</p>
+        <p>Layers in deze context: het animeren van verschillende elementen binnen dezelfde hiërarchie.</p>
+        <p>Deze animation layers zijn samen onderdeel van 1 animatie en geven een animatie meer diepte.</p>
 
-        <h1>Demo</h1>
+        <h2>Voorbeeld #1</h2>
 
         <div class="demo">
             <button>Animate</button>
@@ -40,32 +38,12 @@
             </div>
         </div>
 
-        <p>This animated thumbnail looks pretty nice! To the user it reads as 1 animation: the thumbnail appears and
-            voila. However, this animation consists of several individual animating elements. Each animated with their
-            own speeds and animation curves.</p>
-
-        <p><strong>Note:</strong> even though the 'tail' of the animation is quite long, the element can be considered
-            ready for interaction quite quickly. You can almost say that in cases like this you can divide the animation
-            into a <strong>primary</strong> and <strong>secondary</strong> category. </p>
         <ul>
-            <li>Primary being the scaling animation with which the frame appears.</li>
-            <li>Secondary being the long tail animations which subtly ease out.</li>
+            <li>Primair: Scaling animatie voor het hele frame, titel en subtitel verschijnen redelijk rap.</li>
+            <li>Secundair: OffsetY en achtergrondje animeren langzaam uit.</li>
         </ul>
-        <p>When working with UI, you'll most likely be dealing with object hierarchies. These hierarchies are ideal for
-            animations such as this one. Parent transformations directly translate to the child objects as well. Working
-            your way from top (parent) to bottom (children) is a great way to iterate through animation designs.</p>
-
-        <p>tl;dr animate all the things. Take into consideration primary and secondary layers of animation.</p>
-
-        <h1>Advanced uses</h1>
-        <p>The previous example is a pretty straightforward state toggle that controls all of the parameters.</p>
-        <p>Taking a look at some of the animations Apple is implementing on their iPhones and iPads for example, it becomes a whole other story.</p>
-
-
-
-
-
-
+        <p>Als je met UI bezig bent, dan ben je waarschijnlijk toch al bezig met object hiërarchieen. Tijdens het maken van zo'n animatie kan je daar ideaal doorheen bouwen. Eerst de parent animeren, daarna de child elementen.</p>
+        <p>Laat je creativiteit niet confinen door hoe de hierarchie initieel is opgebouwd. Als voor die ene coole animatie in je hoofd een net iets andere hierarchie nodig is, dan is dat toch prima om zo te maken? Als visueel design een bepaalde structuur kan afdwingen, dan kan animatie dat ook :)</p>
 
     </div>
     <script>

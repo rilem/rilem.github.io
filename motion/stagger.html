@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Q42 Motion</title>
+    <meta name="description" content="Practical motion design tips.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Q42 Motion">
+    <meta property="og:site_name" content="Q42 Motion">
+    <meta property="og:url" content="URL">
+    <meta property="og:description" content="No bullshit. Practical tips for sweet motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview pic url">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/x-icon" href="site-icon.png">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="center-column">
+        <h1>Staggering</h1>
+        <p>Wat is dat dan? Nog een truuk. Beter om lekker snel naar voorbeeld #1 te gaan.</p>
+
+        <h2>Voorbeeld #1</h2>
+
+        <div class="demo">
+            <button>Animate</button>
+            <div class="example stagger">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+        </div>
+
+        <p>Nouja :dat:</p>
+        <p>Dit kan je makkelijk doen door met een loopje door je elementen te itereren en daar de delays in te stellen.
+        </p>
+        <p>Grappig detail is dat deze groep aan blokjes samen eigenlijk 1 animatie lijken te vormen. Dat zou toch ook zo
+            zijn als ze precies tegelijk gaan? Ja, I guess. Maar dat voelt wel echt een stuk minder lekker. Door zo'n
+            stagger krijgt een animatie echt textuur; Het ziet er interessant uit.</p>
+        <p>Note: Ik zie op de internet dat op verschillende plekken de definitie van staggered animation en sequential
+            animation door elkaar gebruikt wordt. Super iritant. Zelf vind ik dat staggered animation gaat over een
+            serie van eenzelfde animaties waar de timing is aangepast per iteratie. Sequential animation is volgens mijn
+            redenering meer het animeren van verschillende properties, maar dan na elkaar.</p>
+        <p>Dat is vooral iritant omdat sommige frameworks staggering ingebouwd hebben als feature, en daarbij dus totaal
+            met elkaar verschillen in wat het werkelijk doet!</p>
+
+        <hr>
+        <h2>Voorbeeld #2</h2>
+        <div class="demo">
+            <button>Animate</button>
+            <div class="example stagger2">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+        </div>
+
+        <p>Dat itereren door elementen hoeft niet linear van min naar max te gaan natuurlijk. De delays hoeven ook niet
+            met een lineare waarde verhoogt te worden. Daar kan je prima mee spelen.</p>
+        <p>Afhankelijk van de vorm en flow van de elementen waar je mee werkt kan je met deze variabelen alleen al echt
+            leuke dingen doen.</p>
+
+
+
+
+    </div>
+    <script>
+        // Get all elements with the class 'demo'
+        const demoElements = document.querySelectorAll('.demo');
+
+        // Loop through each 'demo' element
+        demoElements.forEach((demoElement) => {
+            // Find the button and block elements within each 'demo' element
+            const button = demoElement.querySelector('button');
+            const example = demoElement.querySelector('.example');
+
+            // Add a click event listener to the button if it exists
+            if (button) {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class on the 'block' element
+                    if (example) {
+                        example.classList.toggle('activate');
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Q42 Motion</title>
+    <meta name="description" content="Practical motion design tips.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Q42 Motion">
+    <meta property="og:site_name" content="Q42 Motion">
+    <meta property="og:url" content="URL">
+    <meta property="og:description" content="No bullshit. Practical tips for sweet motion design.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview pic url">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/x-icon" href="site-icon.png">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="center-column">
+        <h1>Sequential animation</h1>
+        <p>Opeenvolging van animaties (zelfde element).</p>
+
+        <h2>Voorbeeld #1</h2>
+
+        <div class="demo">
+            <button>Animate</button>
+            <div class="example sequential">
+                <div id="sequence"></div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/CustomEase.min.js"></script>
+    <script>
+        // Get all elements with the class 'demo'
+        const demoElements = document.querySelectorAll('.demo');
+        let active = false;
+
+        // Loop through each 'demo' element
+        demoElements.forEach((demoElement) => {
+            // Find the button and block elements within each 'demo' element
+            const button = demoElement.querySelector('button');
+            const example = demoElement.querySelector('.example');
+
+
+            // Add a click event listener to the button if it exists
+            if (button) {
+                button.addEventListener('click', () => {
+                    active = !active;
+
+                    if (active) {
+                        gsap.to("#sequence", { duration: 1, ease: "elastic.out", height: 42 });
+                        gsap.to("#sequence", { duration: 1, ease: "elastic.out", width: 42 });
+                        gsap.to("#sequence", { duration: 1, ease: "power2.inOut", rotation: 360, delay: 0.5 });
+                        gsap.to("#sequence", { duration: 3, ease: "power3.inOut", y: -20, delay: 1.6 });
+                        gsap.to("#sequence", { duration: 0.6, ease: "power2.inOut", height: 200, delay: 1.3 });
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.inOut", width: 300, delay: 1.8 });
+                    } else {
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", width: 0 , delay: 0.5});
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", height: 0 , delay: 0.5});
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", y: 0 , delay: 0.5});
+                        gsap.to("#sequence", { duration: 0.6, ease: "power2.inOut", rotation: 0 });
+                    }
+
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>
