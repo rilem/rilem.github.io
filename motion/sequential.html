@@ -11,7 +11,7 @@
     <meta property="og:url" content="URL">
     <meta property="og:description" content="No bullshit. Practical tips for sweet motion design.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="preview pic url">
+    <meta property="og:image" content="https://rilem.github.io/motion/img/preview.png">
     <meta name="theme-color" content="#000000">
 
     <link rel="icon" type="image/x-icon" href="site-icon.png">
@@ -32,6 +32,15 @@
                 <div id="sequence"></div>
             </div>
         </div>
+
+        <h1>Waarom?</h1>
+        <p>Is gewoon lekker toch? Niet alles in 1 keer, maar gewoon eerst dit dan dat. Lekker.</p>
+        <p>Serieus antwoord: Wellicht wil je de aandacht van de gebruiker eerst trekken voordat je de hele trukendoos
+            open doet en de gebruiker overdonderd. Of misschien is zo'n sequence wel een goede manier om het laden van
+            een filmpje of iets
+            dergelijks te verbergen. Een sequence van animaties komt snappier over dan een infinite spinning preloader.
+            Zo'n sequence wekt namelijk de indruk dat de app of website iets aan het doen is.
+        </p>
 
 
 
@@ -58,16 +67,16 @@
                     active = !active;
 
                     if (active) {
-                        gsap.to("#sequence", { duration: 1, ease: "elastic.out", height: 42 });
-                        gsap.to("#sequence", { duration: 1, ease: "elastic.out", width: 42 });
-                        gsap.to("#sequence", { duration: 1, ease: "power2.inOut", rotation: 360, delay: 0.5 });
-                        gsap.to("#sequence", { duration: 3, ease: "power3.inOut", y: -20, delay: 1.6 });
-                        gsap.to("#sequence", { duration: 0.6, ease: "power2.inOut", height: 200, delay: 1.3 });
-                        gsap.to("#sequence", { duration: 0.5, ease: "power2.inOut", width: 300, delay: 1.8 });
+                        gsap.to("#sequence", { duration: 0.8, ease: "elastic.out", height: 42 });
+                        gsap.to("#sequence", { duration: 0.8, ease: "elastic.out", width: 42 });
+                        gsap.to("#sequence", { duration: 0.8, ease: "power2.inOut", rotation: 360, delay: 0.2 });
+                        gsap.to("#sequence", { duration: 2.7, ease: "power3.inOut", y: -20, delay: 1.1 });
+                        gsap.to("#sequence", { duration: 0.6, ease: "power2.inOut", height: 200, delay: 0.9 });
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.inOut", width: 300, delay: 1.2 });
                     } else {
-                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", width: 0 , delay: 0.5});
-                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", height: 0 , delay: 0.5});
-                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", y: 0 , delay: 0.5});
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", width: 0, delay: 0.5 });
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", height: 0, delay: 0.5 });
+                        gsap.to("#sequence", { duration: 0.5, ease: "power2.in", y: 0, delay: 0.5 });
                         gsap.to("#sequence", { duration: 0.6, ease: "power2.inOut", rotation: 0 });
                     }
 
