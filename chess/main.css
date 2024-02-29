@@ -1,0 +1,108 @@
+:root {
+    /* chess board */
+    --board-color-a: #c0beb7;
+    --board-color-b: #dad9d6;
+    --board-gridsize: 250px;
+
+    /* chess piece size */
+    --piece-size: 125px;
+    
+    /* chess piece colors */
+    --darkest-color: #5A5D69;
+
+    /* face details */
+    --face-width: 80%;
+    --eye-scale: 1.1;
+}
+
+body, button {font-size: 16px;font-family: sans-serif;}
+body {padding: 200px 0;}
+hr {margin: 50px 0;opacity: 0.3;}
+img {width:100%;}
+.center-column {max-width: 1000px;width: 100%;margin: 0 auto;}
+button:hover {cursor: pointer;}
+.demo{width:100%;height:500px;}
+
+#draggable {
+    width: var(--piece-size);
+    aspect-ratio: 2 / 3;
+    position: absolute;
+    left:200px;
+    right:200px;
+}
+#draggable:hover{cursor:pointer;}
+#draggable *{  user-select: none; }
+
+.chess-board {
+    background-color: var(--board-color-b);
+    background-image: linear-gradient(45deg, var(--board-color-a) 25%, transparent 25%, transparent 75%, var(--board-color-a) 75%), linear-gradient(45deg, var(--board-color-a) 25%, transparent 25%, transparent 75%, var(--board-color-a) 75%);
+    background-size: var(--board-gridsize) var(--board-gridsize);
+    background-position: 0 0, calc(var(--board-gridsize)/2);
+    border-radius: 20px;
+}
+
+.chess-piece {width:var(--piece-size); position:relative; left:0; top: 0;}
+.chess-piece .body { width:100%; aspect-ratio: 2 / 3;}
+.chess-piece .head {
+    position: absolute;
+    top: -70%;
+    width: 100%;
+}
+
+.face {
+    width: var(--face-width);
+    height: 100%;
+    position: absolute;
+    top: 80%;
+    left: calc( ( 100% - var(--face-width) ) / 2);
+}
+
+.eyes {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.eye, .pupil {aspect-ratio: 1 / 1;border-radius: 200px;}
+.eye {
+    background-color: white;
+    width: calc( 15% * var(--eye-scale));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pupil {
+    background-color: var(--darkest-color);
+    width: 60%;
+    /* animation: look-around 5s ease infinite; */
+}
+
+.mouth {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+}
+.mouth object {width: 30%;}
+
+.shadow {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(82, 74, 88, 0.4);
+    transform: scaleY(50%) scaleX(90%);
+    border-radius: 565px;
+    position: absolute;
+    top: 47%;
+}
+
+/* css animations */
+
+@keyframes look-around {
+    0%   {transform: translate(0,0)}
+    10%  {transform: translate(40%,0)}
+    40%  {transform: translate(40%,0)}
+    50%  {transform: translate(0,0)}
+    60%  {transform: translate(-40%,0)}
+    70%  {transform: translate(-40%,0)}
+    80% {transform: translate(0,0)}
+  }

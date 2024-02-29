@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Q42 Chess</title>
+    <meta name="description" content="Practical motion design tips.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Q42 Chess">
+    <meta property="og:site_name" content="Q42 Chess">
+    <meta property="og:url" content="URL">
+    <meta property="og:description" content="Making chess great again">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://rilem.github.io/motion/img/preview.png">
+    <meta property="og:image:secure_url" content="https://rilem.github.io/motion/img/preview.png" />
+    <meta name="theme-color" content="#000000">
+
+    <link rel="icon" type="image/x-icon" href="site-icon.png">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="center-column">
+        <h1>Chess piece</h1>
+        <div class="demo chess-board">
+            <div id="draggable">
+                <div class="shadow"></div>
+                <div class="chess-piece">
+                    <div class="body">
+                        <object class="faction-a body-graphic" type="image/svg+xml" data="img/body-rook.svg"></object>
+                    </div>
+                    <div class="head">
+                        <object class="faction-a head-graphic" type="image/svg+xml" data="img/head-rook.svg"></object>
+                        <div class="face look-around">
+                            <div class="eyes">
+                                <div class="eye"><div class="pupil"></div></div>
+                                <div class="eye"><div class="pupil"></div></div>
+                            </div>
+                            <div class="mouth">
+                                <object class="faction-a mouth-graphic" type="image/svg+xml" data="img/mouth-smile.svg"></object>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <h2>Actions</h2>
+        <button onclick="Hop()">Hop!</button><button onclick="Hop(84)">Higher!</button>
+        <h2>Types</h2>
+        <button onclick="ChangeSkin('bishop')">Bishop</button>
+        <button onclick="ChangeSkin('rook')">Rook</button>
+        <h2>Look towards</h2>
+        <button onclick="LookTo(-35,-35)">TopLeft</button>
+        <button onclick="LookTo(0,-35)">Top</button>
+        <button onclick="LookTo(35,-35)">TopRight</button><br>
+        <button onclick="LookTo(-35,0)">Left</button>
+        <button onclick="LookTo(0,0)">Center</button>
+        <button onclick="LookTo(35,0)">Right</button><br>
+        <button onclick="LookTo(-35,35)">BottomLeft</button>
+        <button onclick="LookTo(0,35)">Bottom</button>
+        <button onclick="LookTo(35,35)">BottomRight</button>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/CustomEase.min.js"></script>
+    <script src="js.js"></script>
+</body>
+
+</html>
